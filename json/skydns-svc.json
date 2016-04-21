@@ -1,0 +1,31 @@
+{
+    "kind": "Service", 
+    "spec": {
+        "clusterIP": "10.0.0.10", 
+        "ports": [
+            {
+                "protocol": "UDP", 
+                "name": "dns", 
+                "port": 53
+            }, 
+            {
+                "protocol": "TCP", 
+                "name": "dns-tcp", 
+                "port": 53
+            }
+        ], 
+        "selector": {
+            "k8s-app": "kube-dns"
+        }
+    }, 
+    "apiVersion": "v1", 
+    "metadata": {
+        "labels": {
+            "k8s-app": "kube-dns", 
+            "kubernetes.io/name": "KubeDNS", 
+            "kubernetes.io/cluster-service": "true"
+        }, 
+        "namespace": "kube-system", 
+        "name": "kube-dns"
+    }
+}
