@@ -12,13 +12,6 @@ Then run the `deploy-addons.sh` script
 By default it will deploy the DNS addon, the Dashboard and Deployment Manager.
 If you want to deploy only one of them edit `deploy-addons.sh` and set the environment variable accordingly.
 
-Deployment Manager
-------------------
-
-[Deployment Manager](https://github.com/kubernetes/deployment-manager) (DM) is deployed via:
-
-    $ curl -s https://raw.githubusercontent.com/kubernetes/deployment-manager/master/get-install.sh | sh
-
 DNS and Dashboard
 -----------------
 
