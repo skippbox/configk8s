@@ -23,5 +23,5 @@ set -o errtrace
 
 KUBE_ROOT="https://raw.githubusercontent.com/skippbox/configk8s/master"
 
-kubectl create -f "${KUBE_ROOT}/json/dashboard-controller.yaml"
-kubectl create -f "${KUBE_ROOT}/json/dashboard-service.yaml"
+kubectl create -f "${KUBE_ROOT}/json/dashboard-controller.json"
+kubectl create -f "${KUBE_ROOT}/json/dashboard-service.json"
