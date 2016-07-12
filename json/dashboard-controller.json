@@ -19,7 +19,7 @@
                             }, 
                             "timeoutSeconds": 30
                         }, 
-                        "image": "gcr.io/google_containers/kubernetes-dashboard-amd64:v1.0.1", 
+                        "image": "gcr.io/google_containers/kubernetes-dashboard-amd64:v1.1.0", 
                         "resources": {
                             "requests": {
                                 "cpu": "100m", 
@@ -50,10 +50,10 @@
     "metadata": {
         "labels": {
             "k8s-app": "kubernetes-dashboard", 
-            "version": "v1.0.1", 
+            "version": "v1.1.0", 
             "kubernetes.io/cluster-service": "true"
         }, 
         "namespace": "kube-system", 
-        "name": "kubernetes-dashboard-v1.0.1"
+        "name": "kubernetes-dashboard-v1.1.0"
     }
 }
