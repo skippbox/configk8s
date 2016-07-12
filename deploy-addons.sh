@@ -30,7 +30,6 @@ DNS_SERVER_IP="10.0.0.10"
 DNS_DOMAIN="cluster.local"
 DNS_REPLICAS=1
 ENABLE_CLUSTER_UI=true
-ENABLE_DM=true
 
 KUBE_ROOT="https://raw.githubusercontent.com/kubernetes/kubernetes/master"
 bin="$(cd "$(dirname "${BASH_SOURCE}")" && pwd -P)"
@@ -50,9 +49,3 @@ if [ "${ENABLE_CLUSTER_UI}" == "true" ]; then
   echo "Deploying UI Addon" 1>&2
   "${bin}/deploy-ui.sh"
 fi
-
-if [ "${ENABLE_DM}" == "true" ]; then
-  echo "Deploying DM" 1>&2
-  curl -s https://raw.githubusercontent.com/kubernetes/deployment-manager/master/get-install.sh | sh
-fi
-

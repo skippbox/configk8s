@@ -21,7 +21,7 @@ set -o nounset
 set -o pipefail
 set -o errtrace
 
-KUBE_ROOT="https://raw.githubusercontent.com/kubernetes/kubernetes/master"
+KUBE_ROOT="https://raw.githubusercontent.com/skippbox/configk8s/master"
 
-kubectl create -f "${KUBE_ROOT}/cluster/addons/dashboard/dashboard-controller.yaml"
-kubectl create -f "${KUBE_ROOT}/cluster/addons/dashboard/dashboard-service.yaml"
+kubectl create -f "${KUBE_ROOT}/json/dashboard-controller.yaml"
+kubectl create -f "${KUBE_ROOT}/json/dashboard-service.yaml"
