@@ -29,13 +29,12 @@ DNS_REPLICAS=1
 
 workspace=$(pwd)
 
-curl -O ${KUBE_ROOT}/cluster/saltbase/salt/kube-dns/skydns-rc.yaml.in
-curl -O ${KUBE_ROOT}/cluster/saltbase/salt/kube-dns/skydns-svc.yaml.in
+curl -O ${KUBE_ROOT}/cluster/addons/dns/skydns-rc.yaml.in
+curl -O ${KUBE_ROOT}/cluster/addons/dns/skydns-svc.yaml.in
 
 # Process salt pillar templates manually
-sed -e "s/{{ pillar\['dns_replicas'\] }}/${DNS_REPLICAS}/g;s/{{ pillar\['dns_domain'\] }}/${DNS_DOMAIN}/g" "skydns-rc.yaml.in" > "${workspace}/skydns-rc.yaml"
+sed -e "s/{{ pillar\['dns_replicas'\] }}/${DNS_REPLICAS}/g;s/{{ pillar\['dns_domain'\] }}/${DNS_DOMAIN}/g;s/{{ pillar\['federations_domain_map'\] }}//g" "skydns-rc.yaml.in" "skydns-rc.yaml.in" > "${workspace}/skydns-rc.yaml"
 sed -e "s/{{ pillar\['dns_server'\] }}/${DNS_SERVER_IP}/g" "skydns-svc.yaml.in" > "${workspace}/skydns-svc.yaml"
-sed -e "s/{{ pillar\['federations_domain_map'\] }}//g" "skydns-svc.yaml.in" > "${workspace}/skydns-svc.yaml"
 
 # Use kubectl to create skydns rc and service
 kubectl create -f "${workspace}/skydns-rc.yaml"
