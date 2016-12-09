@@ -29,6 +29,7 @@
             "k8s-app": "kube-dns"
         },
         "type": "ClusterIP",
+        "clusterIP": "10.0.0.10",
         "sessionAffinity": "None"
     }
 }
